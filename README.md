@@ -37,7 +37,7 @@ Create a new tracker, name it something like 'Booking' and make sure that the st
 **Standard fields:** Assignee, Start date, Due date  
 **Copy workflow:** Bug  
 **Projects:** The projects you want to use for booking  
-![ScreenShot](https://raw.github.com/aki360P/redmine_resource_booking_system/master/screenshots/01_new_tracker.png)  
+![ScreenShot](https://user-images.githubusercontent.com/34680805/43999456-930a8ada-9e47-11e8-975d-5831f7fd745f.png)    
   
   
 ## 3. Create CustomFields  
@@ -50,7 +50,7 @@ Create 3 new custom fields for *Issues*: Resource, Start time, End time.
 **Name:** Something like 'Room' (the name does not matter).  
 **Description:** Does not matter.  
 **Multiple values:** No  
-**Possible values:** A list of rooms you want to be able to book meetings for. This must include *all* possible rooms!  
+**Possible values:** A list of rooms you want to be able to book meetings for. This must include *all* possible rooms!    
 **Default value:** none  
 **Link values to URL:** none  
 **Display:** drop-down list  
@@ -61,7 +61,7 @@ Create 3 new custom fields for *Issues*: Resource, Start time, End time.
 **Visible:** to any users   
 **Trackers:** 'Booking' or whatever you called the tracker you created.  
 **Projects:** The projects you want to use for booking.  
-![ScreenShot](https://raw.github.com/aki360P/redmine_resource_booking_system/master/screenshots/02_new_customfield1.png)  
+![ScreenShot](https://user-images.githubusercontent.com/34680805/43999465-bdbb8554-9e47-11e8-8137-a69b650b610f.png)   
   
 ### Start time  
 **Format:** List  
@@ -140,8 +140,8 @@ Create 3 new custom fields for *Issues*: Resource, Start time, End time.
 **Visible:** to any users  
 **Trackers:** 'Booking' or whatever you called the tracker you created.  
 **Projects:** The projects you want to use for booking.  
-![ScreenShot](https://raw.github.com/aki360P/redmine_resource_booking_system/master/screenshots/03_new_customfield2.png)  
-  
+![ScreenShot](https://user-images.githubusercontent.com/34680805/43999469-cc232354-9e47-11e8-90fd-2a5209855b9c.png)   
+
 ### End time  
 refer to Start time
   
@@ -156,7 +156,7 @@ Enable project module "redmine_resource_booking_system" and configure setting as
 **Status booking:** 'new' (or whatever you called the tracker status you created).  
 **Status progress:** 'Assigned' (or whatever you called the tracker status you created). The issues in this status will be displayed on sidebar.   
 **Status complete:** 'close' (or whatever you called the tracker status you created).  
-![ScreenShot] (https://raw.github.com/aki360P/redmine_resource_booking_system/master/screenshots/04_project_settings.png)  
+![ScreenShot](https://user-images.githubusercontent.com/34680805/43999474-ddcd1ca4-9e47-11e8-9f6c-27c7305991da.png)  
 
 
 
@@ -181,5 +181,5 @@ This plugin uses 'issue', 'tracker', 'status' and workflow function, so customiz
 
   
 ## Calendar  
-![ScreenShot](https://raw.github.com/aki360P/redmine_resource_booking_system/master/screenshots/10_calendar_sample.png)  
+![ScreenShot](https://user-images.githubusercontent.com/34680805/43999479-e878db2a-9e47-11e8-841b-f5b6167920ed.png)    
   
