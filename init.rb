@@ -27,7 +27,4 @@ Redmine::Plugin.register :redmine_resource_booking_system do
   end
   
   
-  # add issue validation
-  require_dependency 'rrbs_issue_validation_hook'
-  
 end
