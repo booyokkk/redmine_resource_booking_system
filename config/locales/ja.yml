@@ -6,9 +6,9 @@ ja:
   label_rrbs_setting_custom_field_id_room: "リソース"
   label_rrbs_setting_custom_field_id_start: "開始時刻"
   label_rrbs_setting_custom_field_id_end: "終了時刻"
-  label_rrbs_issue_status_id_book: "status 予約中のステータス"
-  label_rrbs_issue_status_id_progress: "status 貸出中のステータス"
-  label_rrbs_issue_status_id_complete: "status 返却済のステータス"
+  label_rrbs_issue_status_id_book: "予約中のステータス"
+  label_rrbs_issue_status_id_progress: "貸出中のステータス"
+  label_rrbs_issue_status_id_complete: "返却済のステータス"
   label_rrbs_footer_message: "注意書き"
   
   
@@ -28,5 +28,10 @@ ja:
   
   label_rrbs_update_event: "予約の更新"
   label_rrbs_create_event: "予約の作成"
+  
+  label_rrbs_status_name_book: "予約 ■"
+  label_rrbs_status_name_progress: "貸出中 ■"
+  label_rrbs_status_name_complete: "完了 ■"
+  label_rrbs_progress_index: "貸出中機器一覧"
   
   
