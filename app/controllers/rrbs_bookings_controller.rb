@@ -23,6 +23,7 @@ class RrbsBookingsController < ApplicationController
     @events = Issue.where("tracker_id = ?", @rrbs_setting.tracker_id)
     @events_book = @events.where("status_id = ?", @rrbs_setting.issue_status_id_book)
     @events_progress = @events.where("status_id = ?", @rrbs_setting.issue_status_id_progress)
+    @events_progress = @events_progress.where("project_id = ?", @rrbs_setting.project_id)
     
     @user_is_manager = 0
     if User.current.allowed_to?(:edit_project, @project) 

@@ -51,7 +51,7 @@
 	var label_rrbs_issueid = "<%= l(:label_rrbs_issueid) %>";
 	
 	var tracker_name = "<%= Tracker.find(@rrbs_setting.tracker_id).name %>";
-	var all_rrbs_resources = <%= raw(@rrbs_resources.collect { |resource| resource }) %>;
+	var rrbs_resources = <%= raw(@rrbs_resources ) %>;
 	var all_start_times = <%= raw(@rrbs_start_time.collect { |time| time }) %>;
 	var all_end_times = <%= raw(@rrbs_end_time.collect { |time| time }) %>;
 	

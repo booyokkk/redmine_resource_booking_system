@@ -60,6 +60,13 @@ jQuery(document).ready(function($) {
                       eventIndexEnd = j;
               }
               
+              var resource_id;
+                  resource_id = event[i].custom_fields[eventIndexResource].value;
+              var resource;
+                  for (var k = 0; k < rrbs_resources.length; k++){
+                      if (rrbs_resources[k][1] == resource_id) resource = rrbs_resources[k][0];
+                      }
+                            
               var start;
                   start = event[i].start_date + "T" + event[i].custom_fields[eventIndexStart].value + ":00";
               var end;
@@ -74,8 +81,8 @@ jQuery(document).ready(function($) {
               
               eventsJSON["events"].push({
               			title: event[i].subject,
-						resource_id: event[i].custom_fields[eventIndexResource].value,
-						resource: all_rrbs_resources[event[i].custom_fields[eventIndexResource].value-1][0], //[0]要素目ちょっと元の配列定義が微妙
+						resource_id: resource_id,
+						resource: resource,
 						start: start,
 						end: end,
 						assigned_to: event[i].assigned_to.name,
