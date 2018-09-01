@@ -104,15 +104,25 @@ jQuery(document).ready(function($) {
 		r_selected.push($(this).val());
 		});
 		document.cookie = 'r_selected=[' + r_selected + ']';
-		//console.log(document.cookie);
 		
 			filterEvents(r_selected);
 	});
+	
+	var load_checkbox = function(){
+		var r_selected_str = GetCookie("r_selected");
+			r_selected_str = r_selected_str.replace("[","")
+			r_selected_str = r_selected_str.replace("]","")
+		var r_selected = r_selected_str.split(',');
 		
-		
-
-		
-
+		if (r_selected.length > 0){
+			$('input:checkbox[name="rrbs_resource_checkbox"]').each(function(){
+				//console.log(" rrbs_resource_checkbox  "  + $(this).val());
+				if (r_selected.indexOf($(this).val()) >= 0){ $(this).attr("checked",true) }
+			});
+			filterEvents(r_selected);
+		}
+	};
+	
 	
 	var filterEvents = function(r_selected){
 			event_json_text = []; //初期化
@@ -172,7 +182,7 @@ jQuery(document).ready(function($) {
 				}else{
 					console.log("ajax失敗 %s %s", action, url);
 					console.log(textStatus + ": " + jqXHR.responseText);
-					alert("ajax失敗");
+					alert(jqXHR.status + " " + jqXHR.statusText + "\n ajax失敗" + "\n textStatus : " + textStatus + "\n errorThrown : " + errorThrown + "\n responseText : " + jqXHR.responseText);
 				}
 			}
 		});
@@ -255,7 +265,7 @@ jQuery(document).ready(function($) {
 				}else{
 					console.log("ajax失敗 %s %s", action, url);
 					console.log(textStatus + ": " + jqXHR.responseText);
-					alert("ajax失敗");
+					alert(jqXHR.status + " " + jqXHR.statusText + "\n ajax失敗" + "\n textStatus : " + textStatus + "\n errorThrown : " + errorThrown + "\n responseText : " + jqXHR.responseText);
 				}
 			}
 		});
@@ -489,14 +499,14 @@ jQuery(document).ready(function($) {
 						getEventsJSON(0, moment_calendar);	//eventsJSONの読み込み
 						
 						//cookie保存
-						document.cookie = 'moment='+moment_calendar;
+						document.cookie = 'moment=' + moment_calendar + '; max-age=300';
 					}
 				}else{
 					//cookieないときはeventsJSONの読み込み
 					getEventsJSON(0, moment_calendar);
 					
 					//cookie保存
-					document.cookie = 'moment='+moment_calendar;
+					document.cookie = 'moment=' + moment_calendar + '; max-age=300';
 				}
 				
 				$(".fc-prev-button").click(function(){
@@ -521,7 +531,8 @@ jQuery(document).ready(function($) {
 		getEventsJSON(0, moment_now);
 		
 		//cookie保存
-		document.cookie = 'moment='+moment_now;
+		document.cookie = 'moment=' + moment_now + '; max-age=300';
 	
+	load_checkbox();
 	loadCalendar();		// 描画
 }); 
