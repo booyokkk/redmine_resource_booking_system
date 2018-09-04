@@ -110,17 +110,20 @@ jQuery(document).ready(function($) {
 	
 	var load_checkbox = function(){
 		var r_selected_str = GetCookie("r_selected");
-			r_selected_str = r_selected_str.replace("[","")
-			r_selected_str = r_selected_str.replace("]","")
-		var r_selected = r_selected_str.split(',');
 		
-		if (r_selected.length > 0){
-			$('input:checkbox[name="rrbs_resource_checkbox"]').each(function(){
-				//console.log(" rrbs_resource_checkbox  "  + $(this).val());
-				if (r_selected.indexOf($(this).val()) >= 0){ $(this).attr("checked",true) }
-			});
-			filterEvents(r_selected);
-		}
+		try {
+				r_selected_str = r_selected_str.replace("[","")
+				r_selected_str = r_selected_str.replace("]","")
+			var r_selected = r_selected_str.split(',');
+			
+			if (r_selected.length > 0){
+				$('input:checkbox[name="rrbs_resource_checkbox"]').each(function(){
+					//console.log(" rrbs_resource_checkbox  "  + $(this).val());
+					if (r_selected.indexOf($(this).val()) >= 0){ $(this).attr("checked",true) }
+				});
+				filterEvents(r_selected);
+			}
+		} catch (error) { console.log("r_selected cookie undefined"); }
 	};
 	
 	
