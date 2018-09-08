@@ -27,7 +27,7 @@ jQuery(document).ready(function($) {
 					
 					// limit 以下のときはoffset設定して再取得
 					if (res.total_count > (offset + 100)) { getEventsJSON(offset + 100, moment); } 
-					else { filterEvents(GetCookie('r_selected')); }
+					else { filterEvents(GetCookie_array('r_selected')); }
 					 },
 					
 					
@@ -109,12 +109,12 @@ jQuery(document).ready(function($) {
 	});
 	
 	var load_checkbox = function(){
-		var r_selected_str = GetCookie("r_selected");
+		var r_selected = GetCookie_array("r_selected");
 		
-		try {
-				r_selected_str = r_selected_str.replace("[","")
-				r_selected_str = r_selected_str.replace("]","")
-			var r_selected = r_selected_str.split(',');
+		//try {
+		//		r_selected_str = r_selected_str.replace("[","")
+		//		r_selected_str = r_selected_str.replace("]","")
+		//	var r_selected = r_selected_str.split(',');
 			
 			if (r_selected.length > 0){
 				$('input:checkbox[name="rrbs_resource_checkbox"]').each(function(){
@@ -123,7 +123,7 @@ jQuery(document).ready(function($) {
 				});
 				filterEvents(r_selected);
 			}
-		} catch (error) { console.log("r_selected cookie undefined"); }
+		//} catch (error) { console.log("r_selected cookie undefined"); }
 	};
 	
 	
@@ -315,6 +315,34 @@ jQuery(document).ready(function($) {
 			
 			result = decodeURIComponent(
 				allcookies.substring( startIndex, endIndex ) );
+		}
+		
+		return result;
+	}
+	
+	function GetCookie_array( name ){
+		var result = [];
+		
+		var cookieName = name + '=';
+		var allcookies = document.cookie;
+		
+		var position = allcookies.indexOf( cookieName );
+		if( position != -1 )
+		{
+			var startIndex = position + cookieName.length;
+			
+			var endIndex = allcookies.indexOf( ';', startIndex );
+			if( endIndex == -1 )
+			{
+				endIndex = allcookies.length;
+			}
+			
+			result = decodeURIComponent(
+				allcookies.substring( startIndex, endIndex ) );
+				
+			result = result.replace("[","")
+			result = result.replace("]","")
+			result = result.split(',');
 		}
 		
 		return result;
