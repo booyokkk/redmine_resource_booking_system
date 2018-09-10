@@ -32,6 +32,7 @@ ja:
   label_rrbs_status_name_book: "予約 ■"
   label_rrbs_status_name_progress: "貸出中 ■"
   label_rrbs_status_name_complete: "完了 ■"
-  label_rrbs_progress_index: "貸出中機器一覧"
+  label_rrbs_progress_index: "貸出中"
+  label_rrbs_book_index: "予約中"
   
   
