@@ -5,7 +5,7 @@ Redmine::Plugin.register :redmine_resource_booking_system do
   description 'Provides a resource booking system with javascript fullcalendar'
   version '0.7.2'
   #requires_redmine version_or_higher: '2.5.0'
-  url 'https://github.com/aki360P/redmine_booking_system'
+  url 'https://github.com/aki360P/redmine_resource_booking_system'
   
   
   project_module :redmine_resource_booking_system do
