@@ -15,7 +15,7 @@ Redmine::Plugin.register :redmine_resource_booking_system do
   
   
   # add tab - project module
-  menu :project_menu, :redmine_resource_booking_system, {:controller => 'rrbs_bookings', :action => 'index' }, :caption => :label_rrbs_booking, :param => :project_id
+  menu :project_menu, :rrbs_bookings, {:controller => 'rrbs_bookings', :action => 'index' }, :caption => :label_rrbs_booking, :param => :project_id
   
   
   # add tab - project module setting
