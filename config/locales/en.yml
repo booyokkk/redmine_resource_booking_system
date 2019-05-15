@@ -32,6 +32,7 @@ en:
   label_rrbs_status_name_book: "Booking"
   label_rrbs_status_name_progress: "Progress"
   label_rrbs_status_name_complete: "Complete"
-  label_rrbs_progress_index: "Resources in progress"
+  label_rrbs_progress_index: "Status - Progress"
+  label_rrbs_book_index: "Status - Booked"
   
   
