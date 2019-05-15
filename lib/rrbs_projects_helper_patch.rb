@@ -1,18 +1,27 @@
-module RrbsProjectsHelperPatch
-  extend ActiveSupport::Concern
-  unloadable
-  included do
-    alias_method_chain(:project_settings_tabs, :rrbs)
-  end
+require 'projects_helper'
 
-  def project_settings_tabs_with_rrbs
-    tabs = project_settings_tabs_without_rrbs
-    action = { name: 'rrbs_booking',
-               controller: 'rrbs_settings',
-               action: 'edit',
-               partial: 'rrbs_settings/show', label: :label_rrbs_booking }
-    tabs << action if User.current.allowed_to?(action, @project)
-    tabs
+module RrbsSettings
+  module ProjectsHelperPatch
+    extend ActiveSupport::Concern
+
+    def project_settings_tabs
+      tabs = super
+      return tabs unless @project.module_enabled?(:redmine_resource_booking_system)
+
+      tabs.tap { |t| t << append_rrbs_tab }.compact
+    end
+
+    def append_rrbs_tab
+      @rrbs_setting = RrbsSetting.find_or_create(@project.id)
+      action = { name: 'rrbs_booking',
+                 controller: 'rrbs_settings',
+                 action: :edit,
+                 partial: 'rrbs_settings/show', label: :label_rrbs_booking }
+      return nil unless User.current.allowed_to?(action, @project)
+
+      action
+    end
   end
 end
 
+ProjectsController.helper(RrbsSettings::ProjectsHelperPatch)

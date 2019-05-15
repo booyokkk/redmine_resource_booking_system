@@ -1,7 +1,7 @@
 class RrbsSettingsController < ApplicationController
   unloadable
-  before_filter :require_login, only: [:off]
-  before_filter :find_user, :find_project, :authorize
+  before_action :require_login
+  before_action :find_user, :find_project, :authorize
 
   def initialize
     super()    #redmine‚Ìˆê”Ê•”(bodyˆÈŠO)‚ðŒp³
@@ -10,10 +10,10 @@ class RrbsSettingsController < ApplicationController
   
   def edit
     unless params[:settings].nil?
-      @rrbs_setting = RrbsSetting.find_or_create(@project.id)
-      rrbs_setting_params = params[:settings]
-      @rrbs_setting.update_attributes(rrbs_setting_params)
-      @rrbs_setting.save
+      rrbs_setting = RrbsSetting.find_or_create(@project.id)
+      
+      rrbs_setting.update(rrbs_setting_params)
+      rrbs_setting.save
       flash[:notice] = l(:notice_successful_update)
       redirect_to controller: 'projects',
                   action: 'settings', id: @project, tab: 'rrbs_booking'
@@ -21,7 +21,7 @@ class RrbsSettingsController < ApplicationController
     
   end
   
-  def index
+  def show
     
   end
   
@@ -37,5 +37,9 @@ class RrbsSettingsController < ApplicationController
     @project = Project.find(params[:project_id])
   rescue ActiveRecord::RecordNotFound
     render_404
+  end
+  
+  def rrbs_setting_params
+    params.require(:settings).permit('tracker_id', 'custom_field_id_room', 'custom_field_id_start', 'custom_field_id_end', 'issue_status_id_book', 'issue_status_id_progress', 'issue_status_id_complete', 'footer_message')
   end
 end

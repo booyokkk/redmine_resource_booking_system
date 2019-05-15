@@ -1,6 +1,6 @@
 class RrbsBookingsController < ApplicationController
   unloadable
-  before_filter :find_user, :find_project
+  before_action :find_user, :find_project
 
   def initialize
     super()    #bodyˆÈŠO‚Íredmine view‚ðŒp³

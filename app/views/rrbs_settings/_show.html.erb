@@ -1,7 +1,8 @@
 <div id="rrbs_settings">
 
 
-<% @rrbs_setting = RrbsSetting.find_or_create(@project.id) %>
+
+
 <%= labelled_form_for :settings, @rrbs_setting,
                              :url => {:controller => 'rrbs_settings',
                              :action => 'edit', :project_id => @project, :tab => 'rrbs_booking',
@@ -61,6 +62,8 @@
 
     <%= submit_tag l(:button_save) %>
     <% end %>
+
+
 
 
 </div>
