@@ -27,14 +27,17 @@
       <p>
         <%= label_tag('settings[custom_field_id_room]', l(:label_rrbs_setting_custom_field_id_room)) %>
         <%= select_tag('settings[custom_field_id_room]', options_for_select(custom_fields_issues.collect{|c| [c.name, c.id]}, @rrbs_setting['custom_field_id_room'])) %>
+        &nbsp This item must be a Customfield(Issue) Key-value-list.
       </p>
       <p>
         <%= label_tag('settings[custom_field_id_start]', l(:label_rrbs_setting_custom_field_id_start)) %>
         <%= select_tag('settings[custom_field_id_start]', options_for_select(custom_fields_issues.collect{|c| [c.name, c.id]}, @rrbs_setting['custom_field_id_start'])) %>
+        &nbsp This item must be a Customfield(Issue) List. ex: 09:00 09:15 09:30 (please fill in 0, 9:00 not allowed)
       </p>
       <p>
         <%= label_tag('settings[custom_field_id_end]', l(:label_rrbs_setting_custom_field_id_end)) %>
         <%= select_tag('settings[custom_field_id_end]', options_for_select(custom_fields_issues.collect{|c| [c.name, c.id]}, @rrbs_setting['custom_field_id_end'])) %>
+        &nbsp This item must be a Customfield(Issue) List. ex: 09:00 09:15 09:30 (please fill in 0, 9:00 not allowed)
       </p>
     
     <% status_ids = IssueStatus.all %>
@@ -58,6 +61,9 @@
     </p>
     
     
+    <br/>
+    Note:<br/>
+    This plugin uses 'issue', 'tracker', 'status' and workflow function, so customization can be done in the redmine original function.<br>
   </div>
 
     <%= submit_tag l(:button_save) %>
