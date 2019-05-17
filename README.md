@@ -1,8 +1,8 @@
 # redmine_resource_booking_system
-Provides a resource booking system with javascript fullcalendar.
-This plugin uses issue and specified tracker, so customization can be done in the redmine original function.
+Provides a resource booking system with javascript fullcalendar.  
+This plugin uses issue and specified tracker, so customization can be done in the redmine original function.  
 
-  
+
 ## Main features
 * Display a booking calendar
 * Booking process can be completed on the calendar view
@@ -43,8 +43,9 @@ rake redmine:plugins:migrate NAME=redmine_resource_booking_system RAILS_ENV=prod
  Go to the project setting tab and complete plugin settings
  
 **!NOTICE!**
-It is important to use the ISO format for the start and end time custom fields (so 13:00 instead of 1:00pm, And 08:00 instead of 8:00)!
-Resource must be defiend with 'key-value-list' customfield!
+
+* It is important to use the ISO format for the start and end time custom fields (so 13:00 instead of 1:00pm, And 08:00 instead of 8:00)!  
+* Resource must be defiend with 'key-value-list' customfield!  
  
 ### How to skip bundle install(change source code)
 
