@@ -370,7 +370,6 @@ jQuery(document).ready(function($) {
 			},
 			
 			// 曜日表示の設定
-			locale: 'ja',  //オプション： en, jaなど。必ず''でくくること
 			firstDay: 0, //週表示の始まり。0:日曜。TODO:redmine全体設定とってこれると良い
 			
 			
