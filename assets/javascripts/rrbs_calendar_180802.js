@@ -526,14 +526,12 @@ jQuery(document).ready(function($) {
 				
 				
 				//高速化のためcookie日付から更新有無を判断
-				if ( moment_cookie != null ) {
-					if ( moment_calendar < moment_cookie ) {
-						console.log("cookieよりも古い日付を表示しているため，eventsJSON再読み込み");
-						getEventsJSON(0, moment_calendar);	//eventsJSONの読み込み
-						
-						//cookie保存
-						document.cookie = 'moment=' + moment_calendar + '; max-age=300';
-					}
+				if ( moment_cookie != null && moment_calendar < moment_cookie ) {
+					console.log("cookieよりも古い日付を表示しているため，eventsJSON再読み込み");
+					getEventsJSON(0, moment_calendar);	//eventsJSONの読み込み
+
+					//cookie保存
+					document.cookie = 'moment=' + moment_calendar + '; max-age=300';
 				}else{
 					//cookieないときはeventsJSONの読み込み
 					getEventsJSON(0, moment_calendar);
