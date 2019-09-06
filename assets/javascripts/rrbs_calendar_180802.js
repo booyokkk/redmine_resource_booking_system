@@ -40,6 +40,9 @@ jQuery(document).ready(function($) {
           console.log('Building JSON');
           var count = eventsRawJSON.issues.length;
           var event = eventsRawJSON.issues;
+	  var eventIndexResource = 0;
+	  var eventIndexStart = 0;
+	  var eventIndexEnd = 0;
           
           //clearにtrue送られてきたときのときは，初期化
           if (clear) {
